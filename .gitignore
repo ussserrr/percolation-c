@@ -53,3 +53,11 @@ dkms.conf
 
 # macOS
 .DS_Store
+
+# Binaries
+single_experiment
+series_experiments
+
+# Others
+test
+test.c
