@@ -34,34 +34,34 @@
 // The order of these entries corresponds to results_strings[] array so we can
 // use it as an index for this array while printing the result
 typedef enum {
-	NO_PERCOLATION = 0,
-	UPWARDS,
-	LEFT_TO_RIGHT,
-	BOTH
+    NO_PERCOLATION = 0,
+    UPWARDS,
+    LEFT_TO_RIGHT,
+    BOTH
 } PercolationType;
 
 // Struct representing the grid. See percolation.c for more information about
 // members of this structure and their roles in the algorithm
 typedef struct {
-	int x_dim;
-	int y_dim;
-	double probability_of_1;
-	int **grid;
+    int x_dim;
+    int y_dim;
+    double probability_of_1;
+    int **grid;
 
-	int num_of_ones;
-	#ifndef SERIES
-		int num_of_clusters_with_perc;
-	#endif
+    int num_of_ones;
+    #ifndef SERIES
+        int num_of_clusters_with_perc;
+    #endif
 
-	int *ids;
-	int **coords;
+    int *ids;
+    int **coords;
 
-	#ifndef SERIES
-		int *clusters_with_perc;
-	#endif
-	#ifdef LENS_OF_CLUSTERS_WITH_PERC
-		int *lens_of_clusters_with_perc;
-	#endif
+    #ifndef SERIES
+        int *clusters_with_perc;
+    #endif
+    #ifdef LENS_OF_CLUSTERS_WITH_PERC
+        int *lens_of_clusters_with_perc;
+    #endif
 } Grid;
 
 
@@ -72,13 +72,13 @@ extern char *results_strings[];
 void generate_grid(Grid *g_ptr, int y_dim, int x_dim, double probability_of_1);
 void delete_grid(Grid *g_ptr);
 #ifndef SERIES
-	void print_grid(Grid *g_ptr);
+    void print_grid(Grid *g_ptr);
 #endif
 void find_clusters(Grid *g_ptr);
 PercolationType is_percolation(Grid *g_ptr);
 
 PercolationType single_exprmnt(Grid *g_ptr, int y_dim, int x_dim,
-							   double probability_of_1);
+                               double probability_of_1);
 
 
 

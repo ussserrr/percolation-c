@@ -2,7 +2,7 @@
 
 // #define BENCHMARK
 #ifdef BENCHMARK
-	#include <time.h>
+    #include <time.h>
 #endif
 
 
@@ -15,39 +15,39 @@
 
 int main(void) {
 
-	if (sodium_init() == -1)
-		exit(EXIT_FAILURE);
+    if (sodium_init() == -1)
+        exit(EXIT_FAILURE);
 
-	Grid g;
-	Grid *g_ptr = &g;
-	PercolationType result;
-
-
-	#ifdef BENCHMARK
-		clock_t tic = clock();
-	#endif
-
-	while (1) {
-		result = single_exprmnt(g_ptr, GRID_Y_DIM, GRID_X_DIM, PROBABILITY_OF_1);
-
-		if (g_ptr->num_of_clusters_with_perc > 1)
-			break;
-		else
-			delete_grid(g_ptr);
-	}
-
-	#ifdef BENCHMARK
-		clock_t toc = clock();
-		printf("Elapsed: %f ms\n", (double)(toc - tic) / CLOCKS_PER_SEC * 1000.0);
-	#endif
+    Grid g;
+    Grid *g_ptr = &g;
+    PercolationType result;
 
 
-	printf( "%dx%d, P(1)=%g: %s (%d)\n", GRID_X_DIM, GRID_Y_DIM, PROBABILITY_OF_1,
-			results_strings[result], g_ptr->num_of_clusters_with_perc );
-	print_grid(g_ptr);
+    #ifdef BENCHMARK
+        clock_t tic = clock();
+    #endif
 
-	delete_grid(g_ptr);
+    while (1) {
+        result = single_exprmnt(g_ptr, GRID_Y_DIM, GRID_X_DIM, PROBABILITY_OF_1);
+
+        if (g_ptr->num_of_clusters_with_perc > 1)
+            break;
+        else
+            delete_grid(g_ptr);
+    }
+
+    #ifdef BENCHMARK
+        clock_t toc = clock();
+        printf("Elapsed: %f ms\n", (double)(toc - tic) / CLOCKS_PER_SEC * 1000.0);
+    #endif
 
 
-	return 0;
+    printf( "%dx%d, P(1)=%g: %s (%d)\n", GRID_X_DIM, GRID_Y_DIM, PROBABILITY_OF_1,
+            results_strings[result], g_ptr->num_of_clusters_with_perc );
+    print_grid(g_ptr);
+
+    delete_grid(g_ptr);
+
+
+    return 0;
 }
