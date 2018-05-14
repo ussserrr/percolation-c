@@ -1,5 +1,6 @@
 # percolation-c
 ![20x20](/example%20samples/single%20experiment/20x20.png)
+See [percolation-python](https://github.com/ussserrr/percolation-python) for Python version of this program.
 
 
 # Overview
@@ -12,6 +13,7 @@ Main library - `percolation.h`/`percolation.c`. It contains algorithm' functions
 Two modes of operation are present:
   - **Single experiment**: performs one run, prints grid and result in a terminal. Also percolated clusters are highlighted by colors. In the given example, `single_experiment.c`, we generate grids again and again until there is no one with 2 percolated clusters at once appears and then display it;
   - **Series of experiments**: quietly runs without displaying the grids (only progress). At each step we increment the probability of cell occupation and also for every probability perform N experiments. Finally, we will get the file named like '25x25, N=100', using that, we can plot the relation between some parameter (e.g., fraction of percolated cluster in all occupied cells or fraction of experiments ended with percolation) and probability.
+  ![gnuplot](/example%20samples/series%20of%20experiments/plot.png)
 
 
 # Dependencies
