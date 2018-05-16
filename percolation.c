@@ -47,7 +47,7 @@ void generate_grid(Grid *g_ptr, int y_dim, int x_dim, double probability_of_1) {
     g_ptr->ids = malloc(sizeof(int));
     // 2-D dynamic array that storing (y,x) coordinates of occupied cells
     g_ptr->coords = malloc(2*sizeof(int));
-    // We operate with these two arrays in the parallel way so ID and
+    // We operate with these two arrays in the parallel way so both ID and
     // coordinates are always match to each other, e.g.:
     //
     //   id   y x
