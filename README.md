@@ -13,14 +13,14 @@ Main library - `percolation.h`/`percolation.c`. It contains algorithm' functions
 
 Two modes of operation are present:
   - **Single experiment**: performs one run, prints grid and result in a terminal. Also percolated clusters are highlighted by colors. In the given example, `single_experiment.c`, we generate grids again and again until there is no one with 2 percolated clusters at once appears and then display it;
-  - **Series of experiments**: quietly runs without displaying grids (only progress). At each step we increment the probability of cell occupation and also for every probability perform N experiments. Finally, we will get the file named like '25x25, N=100', using that, we can plot the relation between some parameter (e.g., fraction of percolated cluster in all occupied cells or fraction of experiments ended with percolation) and probability.
-  
-  ![gnuplot](/example_samples/series_of_experiments/plot.png)
+  - **Series of experiments**: quietly runs without displaying grids. At each step we increment the probability of cell occupation and also for every probability perform N experiments. Finally, we will get the file named like '25x25, N=100', using that, we can plot the relation between some parameter (e.g., fraction of percolated cluster in all occupied cells or fraction of experiments ended with percolation) and probability. Can run in the multithreading mode (using `pthread.h`).
+
+  ![gnuplot](/example_samples/series_of_experiments/N=100.png)
 
 
 # Dependencies
   - [libsodium](https://download.libsodium.org/doc) - random-number generation library
-  - GCC, Clang or some C compiler
+  - GCC, Clang or some another C compiler
   - Make - for Makefile
   - [gnuplot](http://www.gnuplot.info) - optional, used for plotting the data produced in "series of experiments" mode
 
@@ -53,4 +53,4 @@ For last case, after completing you can run
 ```bash
 $ gnuplot plot.gp
 ```
-(see "./example samples/series of experiments") to plot the data.
+(see `./example samples/series of experiments`) to plot the data.

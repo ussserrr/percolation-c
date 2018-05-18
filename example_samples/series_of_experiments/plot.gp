@@ -19,6 +19,6 @@ set ylabel "Fraction of experiments ended with percolation"
 set ylabel font "Helvetica,14"
 set tics font "Helvetica,14"
 
-plot '10x10, N=100', '15x15, N=100', '20x20, N=100', '100x100, N=100'
+plot '10x10, N=1000', '15x15, N=1000', '20x20, N=1000'
 
 pause -1
